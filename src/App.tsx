@@ -84,7 +84,7 @@ function App() {
             <div className="flex gap-4">
               <select
                 value={filter}
-                onChange={(e) => setFilter(e.target.value as any)}
+                onChange={(e) => setFilter(e.target.value as 'all' | 'active' | 'completed')}
                 className="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
                 <option value="all">All</option>
@@ -94,7 +94,7 @@ function App() {
               
               <select
                 value={priorityFilter}
-                onChange={(e) => setPriorityFilter(e.target.value as any)}
+                onChange={(e) => setPriorityFilter(e.target.value as Priority | 'all')}
                 className="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
                 <option value="all">All Priorities</option>
