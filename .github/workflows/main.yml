@@ -1,13 +1,17 @@
 # .github/workflows/ci-pr-and-cd.yml
-name: CI
+name: CI Pipeline
 
 on:
-  pull_request:
-    branches:
-      - '**'
   push:
+    paths-ignore:
+      - 'k8s-manifests/**'
     branches:
       - main
+  pull_request:
+    paths-ignore:
+      - 'k8s-manifests/**'
+    branches:
+      - '**'
 
 permissions:
   contents: write          # Required for creating releases
