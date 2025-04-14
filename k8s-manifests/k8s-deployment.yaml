@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: todo-app
-        image: todo-app:latest # Replace with your Docker image name
+        image: ghcr.io/<username>/<repository>:<tag> # Replace with your GHCR image name
         ports:
         - containerPort: 80
         env:
@@ -29,3 +29,5 @@ spec:
           requests:
             memory: "256Mi"
             cpu: "250m"
+      imagePullSecrets:
+      - name: ghcr-secret
