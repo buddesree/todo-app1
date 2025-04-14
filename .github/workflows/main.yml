@@ -1,5 +1,5 @@
 # .github/workflows/ci-pr-and-cd.yml
-name: CI on PR
+name: CI
 
 on:
   pull_request:
@@ -10,7 +10,7 @@ on:
       - main
 
 permissions:
-  contents: read
+  contents: write          # Required for creating releases
   id-token: write          # for OIDC
   packages: write          # for GHCR
   pull-requests: write
@@ -21,7 +21,7 @@ env:
 
 jobs:
   lint-and-test:
-    name: '🛡️ Lint, Typecheck & Test'
+    name: 'Lint, Typecheck & Test'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
