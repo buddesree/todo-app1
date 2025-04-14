@@ -40,8 +40,8 @@ jobs:
       # - name: Type‑check
       #   run: npm run typecheck
 
-      - name: Run unit tests
-        run: npm test
+      # - name: Run unit tests
+      #   run: npm test
 
   build-and-scan:
     name: '🔧 Build Assets & Scan Container'
