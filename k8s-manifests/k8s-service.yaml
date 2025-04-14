@@ -5,7 +5,7 @@ metadata:
   labels:
     app: todo-app
 spec:
-  type: NodePort
+  type: ClusterIP
   selector:
     app: todo-app
   ports:
