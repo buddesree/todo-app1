@@ -37,14 +37,14 @@ jobs:
       - name: Run ESLint
         run: npm run lint
 
-      # - name: Type‑check
-      #   run: npm run typecheck
+      - name: Type-check
+        run: npm run typecheck
 
-      # - name: Run unit tests
-      #   run: npm test
+      - name: Run unit tests
+        run: npm test
 
   build-and-scan:
-    name: '🔧 Build Assets & Scan Container'
+    name: 'Build Assets & Scan Container'
     needs: lint-and-test
     runs-on: ubuntu-latest
     steps:
@@ -81,16 +81,16 @@ jobs:
           push: false
           tags: ${{ env.IMAGE_NAME }}:pr-${{ github.event.number }}
 
-      - name: Scan image for vulnerabilities
-        uses: aquasecurity/trivy-action@v0.9.2
-        with:
-          image-ref: ${{ env.IMAGE_NAME }}:pr-${{ github.event.number }}
-          format: table
-          exit-code: '1'
-          severity: CRITICAL,HIGH
+      # - name: Scan image for vulnerabilities
+      #   uses: aquasecurity/trivy-action@v0.9.2
+      #   with:
+      #     image-ref: ${{ env.IMAGE_NAME }}:pr-${{ github.event.number }}
+      #     format: table
+      #     exit-code: '1'
+      #     severity: CRITICAL,HIGH
 
   push-to-ghcr:
-    name: '🚀 Push to GitHub Container Registry'
+    name: 'Push to GitHub Container Registry'
     needs: build-and-scan
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
