@@ -17,6 +17,8 @@ env:
   REGISTRY: docker.io
   DOCKERHUB_USERNAME: ${{ secrets.DOCKER_USERNAME }}
   DOCKERHUB_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+  IMAGE_NAME: ${{ secrets.DOCKER_USERNAME }}/todo
+  TAG: ${{ github.sha }} 
 
 jobs:
   build-and-push:
@@ -31,5 +33,5 @@ jobs:
 
       - name: Build and Push Register Service
         run: |
-          docker build -t $REGISTRY/${{ secrets.DOCKER_USERNAME }}/todo .
-          docker push $REGISTRY/${{ secrets.DOCKER_USERNAME }}/todo
+          docker build -t $REGISTRY/$IMAGE_NAME:$TAG .
+          docker push $REGISTRY/$IMAGE_NAME:$TAG
