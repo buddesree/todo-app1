@@ -31,5 +31,5 @@ jobs:
 
       - name: Build and Push Register Service
         run: |
-          docker build -t $REGISTRY/${{ secrets.DOCKER_USERNAME }}/todo ./todo-app1
+          docker build -t $REGISTRY/${{ secrets.DOCKER_USERNAME }}/todo .
           docker push $REGISTRY/${{ secrets.DOCKER_USERNAME }}/todo
