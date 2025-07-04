@@ -5,8 +5,8 @@ on:
     branches:
       - main
     paths:
-      - '/helm-charts/todo-app/**'           # Your chart folder path
-      - '.github/workflows/helm-publish.yml'
+      - '/helm-charts/todoapp/**'           # Your chart folder path
+      - '.github/workflows/helm-publish.yaml'
 
 jobs:
   helm:
