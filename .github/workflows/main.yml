@@ -6,14 +6,14 @@ on:
     paths-ignore:
       - 'k8s-manifests/**'
       - 'helm-charts/**'
-      - '.github/workflows/helm-publish.yaml'
+      - '.github/**'
     branches:
       - main
   pull_request:
     paths-ignore:
       - 'k8s-manifests/**'
       - 'helm-charts/**'
-      - '.github/workflows/helm-publish.yaml'
+      - '.github/**'
     branches:
       - '**'
 
