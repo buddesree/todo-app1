@@ -5,11 +5,13 @@ on:
   push:
     paths-ignore:
       - 'k8s-manifests/**'
+      - 'helm-charts/**'
     branches:
       - main
   pull_request:
     paths-ignore:
       - 'k8s-manifests/**'
+      - 'helm-charts/**'
     branches:
       - '**'
 
