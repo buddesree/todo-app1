@@ -1,0 +1,22 @@
+replicaCount: 3
+
+image:
+  repository: budde9666/todo
+  tag: "9cf11e3ccfd823c53f4406085491fea0c2ab9aae"
+  pullPolicy: IfNotPresent
+
+service:
+  name: todo-app-service
+  type: ClusterIP
+  port: 8080
+  targetPort: 80
+
+resources:
+  limits:
+    memory: "512Mi"
+    cpu: "500m"
+  requests:
+    memory: "256Mi"
+    cpu: "250m"
+
+containerPort: 80

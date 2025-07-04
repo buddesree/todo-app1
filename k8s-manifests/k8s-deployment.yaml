@@ -16,12 +16,9 @@ spec:
     spec:
       containers:
       - name: todo-app
-        image: ghcr.io/buddesree/todo-app1/todo-app:cd7f09cd154165c0fe861830ae5e99bff6e4203a # Replace with your GHCR image name
+        image: budde9666/todo:9cf11e3ccfd823c53f4406085491fea0c2ab9aae # Replace with your GHCR image name
         ports:
         - containerPort: 80
-        env:
-        - name: NODE_ENV
-          value: "production"
         resources:
           limits:
             memory: "512Mi"
@@ -29,5 +26,3 @@ spec:
           requests:
             memory: "256Mi"
             cpu: "250m"
-      imagePullSecrets:
-      - name: ghcr-secret
