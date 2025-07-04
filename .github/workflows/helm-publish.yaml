@@ -32,7 +32,7 @@ jobs:
 
       - name: Package Helm chart
         run: |
-          cd todoapp
+          cd helm-charts/todoapp
           helm package . --destination ../charts
 
       - name: Push chart to GHCR
