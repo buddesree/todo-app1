@@ -8,6 +8,10 @@ on:
       - '/helm-charts/todoapp/**'           # Your chart folder path
       - '.github/workflows/helm-publish.yaml'
 
+env:
+
+  TAG: ${{ github.sha }} 
+      
 jobs:
   helm:
     name: Package & Push Helm Chart
@@ -25,7 +29,7 @@ jobs:
         uses: azure/setup-helm@v4
         with:
           version: v3.13.0
-          
+
       - name: Login to GHCR
         run: echo "${{ secrets.GHCR_PAT }}" | helm registry login ghcr.io -u buddesree --password-stdin
 
@@ -38,4 +42,4 @@ jobs:
 
       - name: Push chart to GHCR
         run: |
-          helm push helm-charts/todoapp/todo-app-*.tgz oci://ghcr.io/${{ github.repository_owner }}/helm-charts
+          helm push helm-charts/todoapp/todo-app-*.tgz oci://ghcr.io/${{ github.repository_owner }}/helm-charts/$TAG
