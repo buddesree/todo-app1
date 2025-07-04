@@ -1,0 +1,31 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: todo-app
+  namespace: todo-new  # ArgoCD's namespace
+spec:
+  project: default
+
+  source:
+    chart: todo-app
+    repoURL: oci://ghcr.io/buddesree/helm-charts
+    targetRevision: 0.1.1  # Chart version
+    helm:
+      releaseName: todo-app
+      values: |
+        replicaCount: 1
+        service:
+          type: ClusterIP
+          port: 80
+        # Add more overrides as needed
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: todo-app  # Namespace to deploy to
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
