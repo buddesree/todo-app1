@@ -37,4 +37,4 @@ jobs:
 
       - name: Push chart to GHCR
         run: |
-          helm push helm-charts/todoapp/charts/todo-app-*.tgz oci://ghcr.io/${{ github.repository_owner }}/helm-charts
+          helm push helm-charts/todoapp/todo-app-*.tgz oci://ghcr.io/${{ github.repository_owner }}/helm-charts
