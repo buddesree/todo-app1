@@ -8,9 +8,6 @@ on:
       - '/helm-charts/todoapp/**'           # Your chart folder path
       - '.github/workflows/helm-publish.yaml'
 
-env:
-
-  TAG: ${{ github.sha }} 
       
 jobs:
   helm:
@@ -42,4 +39,4 @@ jobs:
 
       - name: Push chart to GHCR
         run: |
-          helm push helm-charts/todoapp/todo-app-*.tgz oci://ghcr.io/${{ github.repository_owner }}/helm-charts/$TAG
+          helm push helm-charts/todoapp/todo-app-*.tgz oci://ghcr.io/${{ github.repository_owner }}/helm-charts
